@@ -21,6 +21,7 @@ map.on('load', function () {
       coordinates = data[i]["x"];
       x = Number(coordinates.substr(10));
       y = Number( coordinates.substr(0, 9));
+      town = getTownName (x, y);
       jobdata[i] = {
         "type": "Feature",
         "geometry": {
@@ -30,7 +31,7 @@ map.on('load', function () {
           "properties": {
               "title": data[i]["c"],
               "icon": "marker",
-              "description": "<strong>This town/city has " + data[i]["c"] + " job posting(s).</strong> <p>Visit the <a href=https://www.jobbank.gc.ca/jobsearch/jobsearch?cty=" + data[i]["k"]+ "&wid=px&sort=M#results-list-content target=_blank>Job Bank site</a> for full posting information </p>"
+              "description": "<strong>"+ town + " has " + data[i]["c"] + " job posting(s).</strong> <p>Visit the <a href=https://www.jobbank.gc.ca/jobsearch/jobsearch?cty=" + data[i]["k"]+ "&wid=px&sort=M#results-list-content target=_blank>Job Bank site</a> for full posting information </p>"
           }
       }
     }
@@ -77,3 +78,23 @@ map.on('load', function () {
 
 
 });
+
+
+   function getTownName(x, y)
+   {
+     var xhr = new XMLHttpRequest();
+     xhr.onreadystatechange = function(){
+     if (xhr.readyState==4 && xhr.status==200)
+     {
+       var data = JSON.parse(xhr.responseText);
+       console.log(data);
+       var town = data["features"][0]["context"][3]["text"];
+       return town;
+
+     }
+   }
+     xhr.open('GET','https://api.mapbox.com/geocoding/v5/mapbox.places/'+ x + '%2C%20%09' + y + '.json?access_token=pk.eyJ1Ijoiam9zaHVhLWxvb25nIiwiYSI6ImNqMm01ODQ4cTAwc28ycW93ZGV1cWR5amIifQ.ZxuCP_hBIHqxPUon6vX7jg&proximity=' ,true);
+     xhr.send();
+
+
+   }
