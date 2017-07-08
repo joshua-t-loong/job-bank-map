@@ -6,7 +6,7 @@ This is good when an individual has a very specific understanding of the type of
 However, with the current labour market being difficult to break into, many individuals, especially young people, are just looking 
 for any kind of work that is within a good distance from their home. The best way for people to find this information is spatially.
 
-Using the beta API ([found here](http://stage.lmi-explore-imt.ca/lmiws-api/job/jbws/ct)) that I found in the current Labour Market Information site, I've built an interactive map using on top of Mapbox that 
+Using the beta API ([found here](http://stage.lmi-explore-imt.ca/lmiws-api/job/jbws/ct)) that I found in the current Labour Market Information site, I've built an interactive map on top of Mapbox that 
 allows people to look at the available jobs in their area. 
 
 ## Current Features
