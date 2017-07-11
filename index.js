@@ -13,15 +13,15 @@ map.on('load', function () {
   if (xhr.readyState==4 && xhr.status==200)
   {
     var data = JSON.parse(xhr.responseText);
-    //console.log(data);
+    console.log(data);
 
     for(var i in data)
     {
 
-      coordinates = data[i]["x"];
-      x = Number(coordinates.substr(10));
-      y = Number( coordinates.substr(0, 9));
-      town = getTownName (x, y);
+      var coordinates = data[i]["x"],
+        x = Number(coordinates.substr(10)),
+        y = Number( coordinates.substr(0, 9));
+      // town = getTownName (x, y);
       jobdata[i] = {
         "type": "Feature",
         "geometry": {
@@ -52,9 +52,12 @@ map.on('load', function () {
             "text-offset": [0, 0.6],
             "text-anchor": "top"
         }
-    });
+      });
 
-  }
+    }
+    else{
+      console.log("error");
+    }
   }
   xhr.open('GET','http://stage.lmi-explore-imt.ca/lmiws-api/job/jbws/ct' ,true);
   xhr.send();

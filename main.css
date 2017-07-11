@@ -1,0 +1,15 @@
+.wrapper{
+  width: 100%;
+  height: 100%;
+  flex-direction: row;
+}
+
+#map {
+  width: 80%;
+  height: 100%;
+}
+
+.panel{
+  width: 20%;
+  height: 100%;
+}
