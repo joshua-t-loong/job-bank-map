@@ -2,6 +2,8 @@
   width: 100%;
   height: 100%;
   flex-direction: row;
+  flex-flow: wrap;
+  display: flex;
 }
 
 #map {
@@ -10,6 +12,6 @@
 }
 
 .panel{
-  width: 20%;
+  width: 19%;
   height: 100%;
 }

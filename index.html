@@ -1,14 +1,25 @@
 
 <head>
   <script src='https://api.mapbox.com/mapbox-gl-js/v0.38.0/mapbox-gl.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
   <link href='https://api.mapbox.com/mapbox-gl-js/v0.38.0/mapbox-gl.css' rel='stylesheet' />
+  <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css' rel='stylesheet'/>
   <link href="main.css" rel="stylesheet" />
 </head>
 
 <body>
   <div class = "wrapper">
     <div id='map'></div>
-    <div class="panel"></div>
+    <div class="panel">
+      <table class="search">
+        <tr>
+          <th><input id="search-input" class="search-input"></input></th>
+          <th><div class="search-button">
+            <i class="fa fa-search"></i>
+          </div></th>
+        </tr>
+      </table>
+    </div>
   </div>
   <script src ="index.js"></script>
 </body>
